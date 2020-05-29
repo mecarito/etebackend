@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Put, Body  } from '@nestjs/common';
-import { Staffdto } from 'src/staffinfo/staffdto'
+import { Controller, Get, Post, Put, Body, Delete,  Query } from '@nestjs/common';
+import { Staffdto } from './staffdto'
 import { StaffinfoService } from './staffinfo.service';
 
-
+   
 @Controller('staffinfo')
 export class StaffinfoController {
 
@@ -22,4 +22,9 @@ async findstaff() {
 updateStudent(): string {
    return 'student record successfully updated'
 }
+
+@Delete()
+ async deletestaff( @Query() staffobj ) {
+     return  await this.staffservice.delete( staffobj);
+ } 
 }

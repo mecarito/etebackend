@@ -14,5 +14,7 @@ export class Staffdto {
      researchGroup: string;
      officeNo: string;
      administrativeRole: string;
+     selectedData: string[];
+     length;
 
 }

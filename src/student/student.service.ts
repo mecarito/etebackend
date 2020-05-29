@@ -24,7 +24,7 @@ export class StudentService {
 
         await this.studentRepo.save(student)
         return studentdata;
-    }
+    } 
 
     async findall() {
         return  await this.studentRepo.findAndCount()

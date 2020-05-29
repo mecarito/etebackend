@@ -18,8 +18,6 @@ export class StaffinfoService {
       email,  website, position, highestEducation, researchGroup, officeNo,
       administrativeRole   } = staffbio;
  
-      console.log(staffbio);
-
       const info = new StaffBio();
       info.firstName = firstName;
       info.middleName = middleName;
@@ -36,13 +34,17 @@ export class StaffinfoService {
       info.administrativeRole = administrativeRole;
       
       await this.staffRepo.save(info);
-      return staffbio; 
+      return  {response: 'Staff details susscessfully saved'}; 
       }
  
       async getall() {
-        return  await this.staffRepo.find();
-      
+        return  await this.staffRepo.find();  
       }
-  
-   
+
+      async delete( staffobj: Staffdto ) { 
+        await this.staffRepo.delete( staffobj.selectedData );
+        return { response: 'items deleted' }
+        
+      }
 }  
+ 
