@@ -12,6 +12,11 @@ export class StaffinfoController {
 async createStudent(@Body() staffbio: Staffdto) {
     return this.staffservice.createStaffBio(staffbio)
 }
+
+@Post('multiple')
+async createmultiple() {
+    return this.staffservice.createmultiple();
+}
  
 @Get()
 async findstaff() {
